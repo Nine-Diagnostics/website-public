@@ -1,6 +1,6 @@
 # Nine Diagnostics Website (public)
 
-Static deploy bundle of the Nine Diagnostics Website ClickUp artifact, **version 143**, served by **GitHub Pages** at **https://beta.ninediagnostics.xyz**.
+Static deploy bundle of the Nine Diagnostics Website ClickUp artifact, **version 146**, served by **GitHub Pages** at **https://beta.ninediagnostics.xyz**.
 
 - `index.html`: compiled, self-contained export (React + page logic inlined). **Do not hand-edit**: the next artifact export overwrites it. Edit the artifact in ClickUp instead.
 - `assets/`: the images index.html references (relative `./assets/` paths).
