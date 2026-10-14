@@ -1,0 +1,51 @@
+name: Import website bundle
+
+# Pulls a validated static bundle (ZIP) from the URL in .deploy/bundle-url.txt,
+# replaces the site files on main, and commits. Vercel deploys from that commit.
+# Re-use: commit a new URL to .deploy/bundle-url.txt.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .deploy/bundle-url.txt
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download bundle
+        run: |
+          set -euo pipefail
+          test -s .deploy/bundle-url.txt
+          URL=$(head -n1 .deploy/bundle-url.txt | tr -d '[:space:]')
+          curl -fsSL --retry 3 -o /tmp/bundle.zip "$URL"
+          mkdir -p /tmp/bundle
+          unzip -q /tmp/bundle.zip -d /tmp/bundle
+          test -f /tmp/bundle/index.html
+          test -d /tmp/bundle/assets
+          if grep -q 'artifact-assets.placeholder' /tmp/bundle/index.html; then echo 'placeholder URLs found'; exit 1; fi
+          echo "assets: $(ls /tmp/bundle/assets | wc -l)"
+
+      - name: Replace site files
+        run: |
+          set -euo pipefail
+          git rm -r -q --ignore-unmatch src tests assets package.json package-lock.json vite.config.js playwright.config.js index.html vercel.json README.md .deploy/bundle-url.txt
+          rm -rf src tests assets package.json package-lock.json vite.config.js playwright.config.js index.html vercel.json README.md .deploy
+          cp -R /tmp/bundle/. .
+          git add -A
+          git add -f index.html assets vercel.json README.md
+
+      - name: Commit
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898333+github-actions[bot]@users.noreply.github.com"
+          git commit -m "deploy: website bundle from ClickUp artifact"
+          git push origin HEAD:main
