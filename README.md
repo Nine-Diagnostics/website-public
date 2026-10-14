@@ -1,14 +1,14 @@
-# Nine Diagnostics Website
+# Nine Diagnostics Website (public)
 
-Static deployment bundle exported from the ClickUp artifact.
+Static deploy bundle of the Nine Diagnostics Website ClickUp artifact, **version 133**.
 
-- **Artifact version:** 133
-- **Exported:** 2026-09-25
+- `index.html`: compiled, self-contained export (React + page logic inlined). **Do not hand-edit**: the next artifact export overwrites it. Edit the artifact in ClickUp instead.
+- `assets/`: the 51 images index.html references (relative `./assets/` paths).
+- `vercel.json`: static config, immutable cache headers on `/assets/*`.
 
-## Vercel Settings
+## Vercel settings
+- Framework Preset: **Other**
+- Build Command: **empty**
+- Output Directory: `.`
 
-- **Framework Preset:** Other
-- **Build Command:** (leave empty)
-- **Output Directory:** (leave empty / default)
-
-> **Warning:** `index.html` is compiled output from the artifact. Do not hand-edit it. The next artifact export overwrites it.
+Fonts load from Google Fonts at runtime (intended).
