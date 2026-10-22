@@ -1,16 +1,9 @@
-# Nine Diagnostics Website (public)
+# Nine Diagnostics public website
 
-Static deploy bundle of the Nine Diagnostics Website ClickUp artifact, **version 148**, served by **GitHub Pages** at **https://beta.ninediagnostics.xyz**.
+Static build of the ClickUp artifact "Nine Diagnostics Website", version 211
+(Contact: original copy restored, button opens the ClickUp contact form pop-up).
 
-- `index.html`: compiled, self-contained export (React + page logic inlined). **Do not hand-edit**: the next artifact export overwrites it. Edit the artifact in ClickUp instead.
-- `assets/`: the images index.html references (relative `./assets/` paths).
-- `CNAME`: the custom domain GitHub Pages serves. Keep it; the import action leaves it alone.
-- `.nojekyll`: tells Pages to serve files as-is, with no Jekyll build.
-- `.github/workflows/import-bundle.yml`: imports a validated bundle when `.deploy/bundle-url.txt` changes on main.
+Hosting: GitHub Pages, deploy from branch `main`, root folder. The custom domain is set in
+Settings > Pages. `vercel.json` is required by the import action and is ignored by Pages.
 
-## GitHub Pages settings
-- Settings > Pages > Source: **Deploy from a branch**, branch `main`, folder `/ (root)`
-- Custom domain: `beta.ninediagnostics.xyz`, **Enforce HTTPS** on
-- DNS: CNAME record `beta` -> `nine-diagnostics.github.io`
-
-Fonts load from Google Fonts at runtime (intended).
+Do not hand-edit `index.html`: it is compiled output and the next export overwrites it.
