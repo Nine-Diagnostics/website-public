@@ -1,6 +1,6 @@
 # Nine Diagnostics website (public)
 
-Static build of the ClickUp artifact "Nine Diagnostics Website", **version 218** (News: full original articles at /YYYY/slug, share image + meta tags).
+Static build of the ClickUp artifact "Nine Diagnostics Website", **version 219** (Back to News on article pages; favicon set).
 
 - `index.html` is compiled output. Do not hand-edit; the next export overwrites it.
 - `YYYY/slug.html` = one page per news article at its original WordPress address. `404.html` covers trailing-slash variants.
