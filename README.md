@@ -1,6 +1,6 @@
 # Nine Diagnostics website (public)
 
-Static build of the ClickUp artifact "Nine Diagnostics Website", **version 223** (Threads in footer; old WordPress link forwards; Google Analytics G-7LDLKFMCVN; redirects from old WordPress pages).
+Static build of the ClickUp artifact "Nine Diagnostics Website", **version 224** (Mijin lab X link; Threads in footer; old WordPress link forwards; Google Analytics G-7LDLKFMCVN; redirects from old WordPress pages).
 
 - `index.html` is compiled output. Do not hand-edit; the next export overwrites it.
 - `YYYY/slug.html` = one page per news article at its original WordPress address. `404.html` covers trailing-slash variants. `team`, `news`, `publications`, `contact`, `nine-diagnostics`, `category/*` are redirect stubs from the old WordPress pages to the matching homepage section. Other stubs forward renamed article addresses and short links (/deck, /summary, /papers, /patents, /partnering, /people) carried over from the WordPress Redirection plugin.
