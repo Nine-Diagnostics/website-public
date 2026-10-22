@@ -1,6 +1,6 @@
 # Nine Diagnostics website (public)
 
-Static build of the ClickUp artifact "Nine Diagnostics Website", **version 219** (Back to News on article pages; favicon set).
+Static build of the ClickUp artifact "Nine Diagnostics Website", **version 221** (Pitt HexAI Spotify embed fixed; NBC watch card popup).
 
 - `index.html` is compiled output. Do not hand-edit; the next export overwrites it.
 - `YYYY/slug.html` = one page per news article at its original WordPress address. `404.html` covers trailing-slash variants.
